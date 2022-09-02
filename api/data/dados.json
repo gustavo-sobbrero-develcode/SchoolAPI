@@ -1,46 +1,35 @@
 {
   "users": [
     {
-      "id": 2,
-      "nome": "Ana Torre",
+      "nome": "Gustavo Lucas Sobbrero",
       "ativo": true,
-      "email": "a@a.com",
-      "role": 1
+      "email": "gustavitonieto@gmail.com",
+      "role": 1,
+      "createdAt": "2022-08-31T00:00:00.000Z",
+      "id": 4
     },
     {
-      "id": 2,
-      "nome": "Gabriel Costa",
+      "id": 7,
+      "nome": "Martin",
       "ativo": true,
-      "email": "g@g.com",
-      "role": 1
+      "email": "titan@email.com",
+      "role": 3
     },
     {
-      "id": 3,
-      "nome": "Flavia Lins",
+      "nome": "Roman",
       "ativo": true,
-      "email": "f@f.com",
-      "role": 1
+      "email": "la12@email.com",
+      "role": 2,
+      "createdAt": "2022-08-31T00:00:00.000Z",
+      "id": 8
     },
     {
-      "id": 4,
-      "nome": "Carlos Marques",
+      "nome": "Gustavo Adolfo Sobbrero",
       "ativo": true,
-      "email": "c@c.com",
-      "role": 2
-    },
-    {
-      "id": 5,
-      "nome": "Silvia Souza",
-      "ativo": true,
-      "email": "s@s.com",
-      "role": 2
-    },
-    {
-      "id": 6,
-      "nome": "Marcia Silva",
-      "ativo": true,
-      "email": "m@m.com",
-      "role": 2
+      "email": "gustavito@gmail.com",
+      "role": 2,
+      "createdAt": "2022-08-31T00:00:00.000Z",
+      "id": 9
     }
   ],
   "roles": [
@@ -55,6 +44,10 @@
     {
       "id": 3,
       "type": "COORDENACAO"
+    },
+    {
+      "id": 4,
+      "type": "CHEFE"
     }
   ]
 }
