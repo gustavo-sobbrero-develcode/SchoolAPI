@@ -30,6 +30,14 @@
       "role": 2,
       "createdAt": "2022-08-31T00:00:00.000Z",
       "id": 9
+    },
+    {
+      "nome": "Amanda Pesca",
+      "ativo": true,
+      "email": "amanda@gmail.com",
+      "role": 1,
+      "createdAt": "2022-08-31T00:00:00.000Z",
+      "id": 10
     }
   ],
   "roles": [

@@ -1,11 +1,11 @@
 const { SQLDataSource } = require("datasource-sql");
-
+const DataLoader = require('dataloader')
 class TurmasAPI extends SQLDataSource {
     constructor(dbConfig) {
         super(dbConfig)
         this.Resposta = {
             mensagem: ""
-          }
+        }
     }
 
     async getTurmas() {
@@ -24,34 +24,45 @@ class TurmasAPI extends SQLDataSource {
 
     async incluiTurma(novaTurma) {
         const novaTurmaId = await this.db
-        .insert(novaTurma)
-        .returning('id')
-        .into('turmas')
+            .insert(novaTurma)
+            .returning('id')
+            .into('turmas')
 
-        const turmaInserida = await this.getTurma(novaTurmaId[0])
+        const turmaInserida = await this.getTurma(novaTurmaId[0].id)
         return ({ ...turmaInserida })
     }
 
     async atualizaTurma(novosDados) {
         await this.db
-          .update({ ...novosDados.turma })
-          .where({ id: Number(novosDados.id) })
-          .into('turmas')
-     
+            .update({ ...novosDados.turma })
+            .where({ id: Number(novosDados.id) })
+            .into('turmas')
+
         const turmaAtualizada = await this.getTurma(novosDados.id)
         return ({
-          ...turmaAtualizada
+            ...turmaAtualizada
         })
-      }
-    
+    }
+
     async deletaTurma(id) {
         await this.db('turmas')
-        .where({id: id})
-        .del()
+            .where({ id: id })
+            .del()
 
         this.Resposta.mensagem = "registro apagado"
         return this.Resposta
     }
+
+    getTurmasCarregadas = new DataLoader(async idsTurmas => {
+        const turmas = await this.db
+            .select('*')
+            .from('turmas')
+            .whereIn('id', idsTurmas)
+
+        return idsTurmas
+            .map(id => turmas
+                .find(turma => turma.id === id))
+    })
 
 }
 

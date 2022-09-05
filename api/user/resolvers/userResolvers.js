@@ -15,8 +15,10 @@ const userResolvers = {
         parseLiteral: (ast) => new Date(ast.value)
     }),
     Query: {
-        users: (root, args, { dataSources }) => dataSources.usersAPI.getUsers(),
-        user: (root, { id }, { dataSources }) => dataSources.usersAPI.getUserById(id)
+        users: (root, args, { dataSources }) => 
+        dataSources.usersAPI.getUsers(args),
+        user: (root, { id }, { dataSources }) => 
+        dataSources.usersAPI.getUserById(id)
     },
 
     Mutation: {
@@ -28,6 +30,11 @@ const userResolvers = {
 
         deletaUser: async (root, { id }, { dataSources }) =>
         dataSources.usersAPI.deletaUser(id)
+    },
+
+    User: {
+        matriculas: (parent, _, { dataSources }) =>
+        dataSources.matriculasAPI.getMatriculasPorEstudante.load(parent.id)
     }
 }
 

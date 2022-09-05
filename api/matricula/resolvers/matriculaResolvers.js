@@ -10,7 +10,21 @@ const matriculaResolvers = {
     }),
     Mutation: {
         matricularEstudante: (_, ids, { dataSources }) =>
-        dataSources.matriculasAPI.matricularEstudante(ids) 
+        dataSources.matriculasAPI.matricularEstudante(ids),
+        deletarMatricula: (_, { matricula }, { dataSources }) =>
+        dataSources.matriculasAPI.deletarMatricula(matricula),
+        cancelarMatricula: (_, { matricula }, { dataSources }) =>
+        dataSources.matriculasAPI.cancelarMatricula(matricula)
+    },
+
+    Matricula: {
+        estudante: (parent, _, { dataSources }) =>
+        dataSources.usersAPI.getUserById(parent.estudante_id),
+        turma: (parent, _, { dataSources }) => 
+        dataSources.turmasAPI.getTurma(parent.turma_id),
+        turma: (parent, _, { dataSources }) => 
+        dataSources.turmasAPI.getTurmasCarregadas.load(parent.turma_id)
+
     }
 }
 
