@@ -38,6 +38,22 @@
       "role": 1,
       "createdAt": "2022-08-31T00:00:00.000Z",
       "id": 10
+    },
+    {
+      "nome": "Amanda asc",
+      "ativo": true,
+      "email": "amanda@gmail.com",
+      "role": 1,
+      "createdAt": "2022-08-31T00:00:00.000Z",
+      "id": 11
+    },
+    {
+      "nome": "Lucas",
+      "ativo": true,
+      "email": "amanda@gmail.com",
+      "role": 1,
+      "createdAt": "2022-08-31T00:00:00.000Z",
+      "id": 1
     }
   ],
   "roles": [

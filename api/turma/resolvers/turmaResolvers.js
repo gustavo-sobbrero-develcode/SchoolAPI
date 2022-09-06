@@ -9,8 +9,8 @@ const turmaResolvers = {
         parseLiteral: (ast) => new Date(ast.value).toISOString()
     }),
     Query: {
-        turmas: (_, __, { dataSources}) => dataSources.turmasAPI
-        .getTurmas(),
+        turmas: (_, args, { dataSources}) => dataSources.turmasAPI
+        .getTurmas(args),
         turma: (_, { id }, { dataSources }) => dataSources.turmasAPI
         .getTurma(id)
     },
